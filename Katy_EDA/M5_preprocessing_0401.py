@@ -25,19 +25,18 @@ event_2['Name'] = labelencoder.fit_transform(event_2['Name'])
 event_2['Type'] = labelencoder.fit_transform(event_2['Type'])
 
 
-# FOODS data only:
+# FOODS data only
+# Transpose date & Quantity:
 Foods = csv_TrainValidation['cat_id'] == 'FOODS'
 TrainValidation_Foods = csv_TrainValidation[Foods]
+# pd.melt(TrainValidation_Foods, value_vars = ['d_1', 'd_2', 'd_3', 'd_4', 'd_5'])
+Foods_Transpose = pd.melt(TrainValidation_Foods, id_vars = ['id', 'item_id', 'dept_id', 'cat_id', 'store_id', 'state_id'])
 
-# Below part needs modification QQ
-to_repeat = TrainValidation_Foods.iloc[:, 1:5]
-days_in_one_column = pd.concat([to_repeat] * 1913)
-days_in_one_column['day_n'] = pd.concat([pd.Series(range(1, 1914))] * 3)
 
-days_in_one_column['day'] = TrainValidation_Foods['d_1']
-'''
-for i in range(2, 1914):
-    days_in_one_column['day'].append(TrainValidation_Foods[str('d_' + 'i')])   
-'''     
-days_in_one_column['day'].append(TrainValidation_Foods['d_2'])
-days_in_one_column['day'].append(TrainValidation_Foods['d_3'])
+# merge with calendar data with event encoding
+csv_calendar['event_name_1_encoding'] = event_1['Name']
+csv_calendar['event_type_1_encoding'] = event_1['Type']
+csv_calendar['event_name_2_encoding'] = event_2['Name']
+csv_calendar['event_type_2_encoding'] = event_2['Type']
+
+new = pd.merge(Foods_Transpose, csv_calendar, left_on = 'variable', right_on = 'd')
