@@ -1,8 +1,9 @@
 
-TODO: 03/25/2020
+Comparing the precision of 2 machine learning regression models through visualizations of train + evaluation data sets and RMSE.
 
-1. Prepare a pandas dataframe to be used for any analytics. This can be a subset of existing data.
+The comparison is done over the datasets recording unit sales of Walmart over 1912 days, 10 store branches (in states California, Texas and Wisconsin), and 7 product types ()
 
-2. Perform some EDA on said dataframe
+The dataset in question can be found here:
+https://www.kaggle.com/c/m5-forecasting-accuracy/overview
 
-3. (Optional) Make some prediction with Root Mean Square Error (RMSE) test
+The models being compared are simple linear regression and  AutoRegressive Integrated Moving Average (ARIMA)
