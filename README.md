@@ -9,6 +9,8 @@ https://www.kaggle.com/c/m5-forecasting-accuracy/overview
 
 - Prediction 2 (Katy "Yun-Hsuan" Chuang):[Weighted Feature Events](https://github.com/velwu/urChampKaggle/blob/master/Katy_EDA/Add%20Weighted%20Feature_Events.ipynb)
 
+- Prediction 3 (Lisa "Chien-Ju" Chen):[LSTM](https://github.com/velwu/urChampKaggle/blob/master/Chien_EDA/LSTM_Ver2_Final.ipynb)
+
 
 # 12 Levels of Aggregation:
 ![Lvl_Agg](Levels_of_Aggregation.PNG)
